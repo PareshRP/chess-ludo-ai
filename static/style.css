@@ -1,0 +1,261 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    color: #fff;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #e2c27d;
+}
+
+.subtitle {
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.game-area {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Board */
+.board-section {
+    flex: 1;
+    min-width: 350px;
+}
+
+#chess-board {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chess-board svg {
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.start-message {
+    color: #aaa;
+    font-size: 1.1rem;
+}
+
+.move-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.move-input input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    text-transform: lowercase;
+}
+
+.move-input input:focus {
+    outline: none;
+    border-color: #e2c27d;
+}
+
+.move-input input::placeholder {
+    color: #777;
+}
+
+/* AI Panel */
+.ai-panel {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Buttons */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: #e2c27d;
+    color: #1a1a2e;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #d4a84b;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#move-btn {
+    background: #4CAF50;
+    color: #fff;
+    padding: 12px 20px;
+}
+
+#move-btn:hover:not(:disabled) {
+    background: #45a049;
+}
+
+/* Info Boxes */
+.status-box,
+.commentary-box,
+.history-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.status-box h3,
+.commentary-box h3,
+.history-box h3 {
+    color: #e2c27d;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#game-status {
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.turn {
+    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+.turn.white {
+    background: #fff;
+    color: #1a1a2e;
+}
+
+.turn.black {
+    background: #333;
+    color: #fff;
+    border: 1px solid #666;
+}
+
+#commentary {
+    color: #ddd;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+#move-history {
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+.move-entry {
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    gap: 10px;
+}
+
+.move-num {
+    color: #e2c27d;
+    font-weight: 600;
+    min-width: 25px;
+}
+
+.in-check {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.game-over-banner {
+    background: linear-gradient(135deg, #e2c27d, #d4a84b);
+    color: #1a1a2e;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.loading {
+    color: #aaa;
+    font-style: italic;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1
+    }
+
+    50% {
+        opacity: 0.4
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♟️ AI Chess 2026 - Powered by Gemini</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>♟️ AI Chess 2026</h1>
+            <p class="subtitle">Classic Chess × Gemini AI Commentary</p>
+        </header>
+
+        <!-- Main Game Area -->
+        <div class="game-area">
+
+            <!-- Chess Board -->
+            <div class="board-section">
+                <div id="chess-board">
+                    <p class="start-message">Click "New Game" to start playing!</p>
+                </div>
+                <div class="move-input">
+                    <input type="text" id="move-input" placeholder="Enter move (e.g. e2e4)" maxlength="5" />
+                    <button onclick="makeMove()" id="move-btn" disabled>Move ♟️</button>
+                </div>
+            </div>
+
+            <!-- AI Panel -->
+            <div class="ai-panel">
+
+                <!-- Controls -->
+                <div class="controls">
+                    <button onclick="startNewGame()" class="btn-primary">New Game 🎮</button>
+                    <button onclick="getHint()" id="hint-btn" class="btn-secondary" disabled>
+                        Hint 💡
+                    </button>
+                    <button onclick="getSuggestion()" id="suggest-btn" class="btn-secondary" disabled>
+                        Suggest Move 🤖
+                    </button>
+                </div>
+
+                <!-- Game Status -->
+                <div class="status-box">
+                    <h3>📊 Game Status</h3>
+                    <div id="game-status">Waiting to start...</div>
+                    <div id="turn-indicator" class="turn"></div>
+                </div>
+
+                <!-- Gemini Commentary -->
+                <div class="commentary-box">
+                    <h3>🤖 Gemini Says...</h3>
+                    <div id="commentary">
+                        Start a game to see live AI commentary!
+                    </div>
+                </div>
+
+                <!-- Move History -->
+                <div class="history-box">
+                    <h3>📜 Move History</h3>
+                    <div id="move-history"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/game.js"></script>
+</body>
+
+</html>
